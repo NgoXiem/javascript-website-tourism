@@ -13,39 +13,24 @@ bar.addEventListener("click", (e) => {
   nav.classList.toggle("show-link");
 });
 
-// window.addEventListener("scroll", (e) => {
-//   console.log(scrollX, scrollY);
-// });
+const contents = document.querySelectorAll(".gallery__text");
+contents.forEach((content) => {
+  content.addEventListener("mouseover", (e) => {
+    // e.target.previousElementSibling.style.transform = "scale(1.1)";
+  });
+});
 
-// window.addEventListener("mouseover", (e) => {
-//   console.log(e.pageX, e.pageY);
-// });
-
-links.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log(header.getBoundingClientRect().height);
-    if (header.getBoundingClientRect().height === 63) {
-      link.getAttribute("href") === "#about"
-        ? scrollTo(0, 658)
-        : link.getAttribute("href") === "#tours"
-        ? scrollTo(0, 1561)
-        : link.getAttribute("href") === "#services"
-        ? scrollTo(0, 1142)
-        : link.getAttribute("href") === "#gallery"
-        ? scrollTo(0, 2618)
-        : scrollTo(0, 0);
-    } else if (header.getBoundingClientRect().height === 345) {
-      link.getAttribute("href") === "#about"
-        ? scrollTo(0, 655)
-        : link.getAttribute("href") === "#tours"
-        ? scrollTo(0, 2275)
-        : link.getAttribute("href") === "#services"
-        ? scrollTo(0, 1631)
-        : link.getAttribute("href") === "#gallery"
-        ? scrollTo(0, 4648)
-        : scrollTo(0, 0);
-      nav.classList.remove("show-link");
+const imageLinks = document.querySelectorAll(".image a");
+imageLinks.forEach((link) => {
+  link.addEventListener("mouseover", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.target.style.transform = "scale(1.1)";
+      e.target.style.transition = "all 0.3s ease";
     }
+  });
+
+  link.addEventListener("mouseleave", (e) => {
+    e.target.firstElementChild.style.transform = "scale(1)";
+    e.target.firstElementChild.style.transition = "all 0.3s ease";
   });
 });
