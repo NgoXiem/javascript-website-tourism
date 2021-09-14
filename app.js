@@ -34,3 +34,37 @@ imageLinks.forEach((link) => {
     e.target.firstElementChild.style.transition = "all 0.3s ease";
   });
 });
+
+// autoplay carousel
+
+const dots = document.querySelectorAll(".dot");
+const videos = document.querySelectorAll(".banner");
+let counter = 0;
+let timer;
+
+const autoplay = () => {
+  timer = setInterval(() => {
+    counter++;
+    if (counter > 4) {
+      counter = 0;
+    }
+    dots.forEach((dot) => dot.classList.remove("active"));
+    videos.forEach((video) => video.classList.remove("active"));
+    videos[counter].classList.add("active");
+    dots[counter].classList.add("active");
+  }, 15000);
+};
+autoplay();
+
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    clearInterval(timer);
+    dots.forEach((dot) => dot.classList.remove("active"));
+    videos.forEach((video) => video.classList.remove("active"));
+
+    videos[index].classList.add("active");
+    dot.classList.add("active");
+    counter = index;
+    autoplay();
+  });
+});

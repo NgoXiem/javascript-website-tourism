@@ -105,28 +105,32 @@ header i {
 }
 
 /* Main Banner */
-#home {
-  background-color: var(--primaryColor);
+
+.banner__info {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: var(--mainWhite);
-  min-height: 700px;
-  padding: 25vh 8vh 25vh 8vh;
-  text-align: center;
+  width: 100%;
 }
-#home h1 {
+
+.banner__info h1 {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   font-size: 3.5em;
   margin: 0 auto;
 }
 
-#home h4 {
+.banner__info h4 {
+  max-width: 70%;
   font-weight: 500;
   letter-spacing: 3px;
   line-height: 30px;
-  padding: 5vh 0 8vh 0;
 }
 
-#home a {
+.banner__info a {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   color: var(--mainWhite);
@@ -135,10 +139,116 @@ header i {
   cursor: pointer;
 }
 
-#home a:hover {
+.banner__info a:hover {
   background-color: var(--mainWhite);
   color: var(--primaryColor);
   transition: var(--mainTransition);
+}
+
+@media screen and (max-width: 900px) {
+  .banner__info {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner__info {
+    font-size: 0.6em;
+    line-height: 20px;
+    gap: 15px;
+  }
+  .banner__info a {
+    padding: 5px 8px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .banner__info {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+.home {
+  position: relative;
+}
+.home__blur {
+  height: 100%;
+  width: 100%;
+}
+
+.home .videos__wrapper {
+  display: grid;
+  grid-template-areas: banner;
+  position: relative;
+}
+.home__blur {
+  grid-area: banner;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(63, 208, 212, 0.7),
+    rgba(0, 0, 0, 0)
+  );
+  z-index: 2;
+}
+.banner {
+  grid-area: banner;
+  clip-path: circle(0% at 0 50%);
+  transition: all ease-in-out;
+}
+
+.banner.active {
+  clip-path: circle(1500% at 1% 50%);
+}
+.home video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.banner {
+  display: grid;
+  grid-template-areas: "content";
+}
+.banner > * {
+  grid-area: content;
+  position: relative;
+}
+
+.banner__info {
+  z-index: 2;
+}
+
+.dots__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 40px;
+  z-index: 2;
+}
+.dots__wrapper .dot {
+  cursor: pointer;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+}
+
+.dot.active {
+  background-color: #0a2bc4;
+}
+
+@media screen and (max-width: 768px) {
+  .dots__wrapper {
+    bottom: 20px;
+  }
 }
 
 /* About us */
@@ -520,7 +630,7 @@ footer p {
   }
 }
 @media screen and (min-width: 780px) {
-  #home {
+  /* #home {
     background: linear-gradient(
         to bottom,
         rgba(63, 208, 212, 0.7),
@@ -531,9 +641,7 @@ footer p {
     background-repeat: no-repeat;
     background-size: cover;
   }
-  #home h1 {
-    font-size: 4em;
-  }
+   */
 
   /* featured tours*/
 
@@ -579,6 +687,9 @@ footer p {
     left: 20px;
     max-width: 450px;
     max-height: 300px;
+  }
+  #services {
+    padding-top: 5vh;
   }
 }
 @media screen and (max-width: 450px) {
