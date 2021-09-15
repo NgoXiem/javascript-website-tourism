@@ -73,6 +73,12 @@ h2 span {
 /* Header aka Navbar*/
 header {
   padding: 0 20px;
+  position: fixed;
+  top: 0;
+  background-color: var(--offWhite);
+  z-index: 999;
+  width: 100%;
+  box-shadow: var(--lightShadow);
 }
 header img {
   height: 30px;
@@ -93,15 +99,6 @@ header img {
 }
 header i {
   margin: 5px;
-}
-/* fixed navbar */
-.nav_fixed {
-  position: fixed;
-  top: 0;
-  background-color: var(--offWhite);
-  z-index: 999;
-  width: 100%;
-  box-shadow: var(--lightShadow);
 }
 
 /* Main Banner */
@@ -128,6 +125,7 @@ header i {
   font-weight: 500;
   letter-spacing: 3px;
   line-height: 30px;
+  text-align: center;
 }
 
 .banner__info a {
@@ -163,15 +161,14 @@ header i {
 }
 
 @media screen and (max-width: 540px) {
-  .banner__info {
-    display: block;
-    text-align: center;
-    margin: auto;
+  .banner__info h4 {
+    display: none;
   }
 }
 
 .home {
   position: relative;
+  margin-top: 60px;
 }
 .home__blur {
   height: 100%;
@@ -206,8 +203,8 @@ header i {
 }
 .home video {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  object-fit: cover;
 }
 .banner {
   display: grid;
@@ -230,9 +227,10 @@ header i {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   z-index: 2;
 }
+
 .dots__wrapper .dot {
   cursor: pointer;
   border-radius: 50%;
@@ -245,11 +243,11 @@ header i {
   background-color: #0a2bc4;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (min-width: 1200px) {
   .dots__wrapper {
-    bottom: 20px;
+    bottom: 20vh;
   }
-}
+} */
 
 /* About us */
 #about {

@@ -3,12 +3,6 @@ const bar = document.querySelector(".logo i");
 const nav = document.querySelector(".header-nav");
 const links = document.querySelectorAll("nav a");
 
-window.addEventListener("scroll", (e) => {
-  window.scrollY > nav.clientHeight + 100
-    ? header.classList.add("nav_fixed")
-    : header.classList.remove("nav_fixed");
-});
-
 bar.addEventListener("click", (e) => {
   nav.classList.toggle("show-link");
 });
@@ -68,3 +62,9 @@ dots.forEach((dot, index) => {
     autoplay();
   });
 });
+
+// position the dots
+
+const dotWrapper = document.querySelector(".dots__wrapper");
+
+windows.addEventListener("resize", () => {});
