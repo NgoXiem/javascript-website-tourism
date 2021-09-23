@@ -71,6 +71,16 @@ h2 span {
   transition: var(--mainTransition);
 }
 /* Header aka Navbar*/
+.logo p {
+  padding-top: 20px;
+  font-weight: 800;
+  color: var(--mainBlack);
+  letter-spacing: var(--mainSpacing);
+}
+.logo p span {
+  color: var(--primaryColor);
+}
+
 header {
   padding: 0 20px;
   position: fixed;
@@ -79,7 +89,9 @@ header {
   z-index: 999;
   width: 100%;
   box-shadow: var(--lightShadow);
+  padding-bottom: 20px;
 }
+
 header img {
   height: 30px;
   margin: 15px 0;
@@ -104,6 +116,7 @@ header i {
 /* Main Banner */
 
 .banner__info {
+  padding: 20px;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -118,6 +131,8 @@ header i {
   letter-spacing: var(--mainSpacing);
   font-size: 3.5em;
   margin: 0 auto;
+  background-color: rgba(143, 230, 233, 0.7);
+  padding: 5px 10px;
 }
 
 .banner__info h4 {
@@ -126,21 +141,24 @@ header i {
   letter-spacing: 3px;
   line-height: 30px;
   text-align: center;
+  color: var(--mainBlack);
+  background-color: rgba(143, 230, 233, 0.5);
 }
 
 .banner__info a {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   color: var(--mainWhite);
-  border: 2px solid var(--mainWhite);
+  background-color: var(--mainWhite);
+  color: var(--primaryColor);
   padding: 15px 20px;
   cursor: pointer;
 }
 
 .banner__info a:hover {
-  background-color: var(--mainWhite);
-  color: var(--primaryColor);
   transition: var(--mainTransition);
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
 }
 
 @media screen and (max-width: 900px) {
@@ -240,14 +258,8 @@ header i {
 }
 
 .dot.active {
-  background-color: #0a2bc4;
+  background-color: var(--primaryColor);
 }
-
-/* @media screen and (min-width: 1200px) {
-  .dots__wrapper {
-    bottom: 20vh;
-  }
-} */
 
 /* About us */
 #about {
@@ -576,6 +588,7 @@ footer p {
     padding-left: 30px;
     padding-right: 30px;
   }
+
   .logo i {
     margin-top: 25px;
     cursor: pointer;
@@ -628,19 +641,6 @@ footer p {
   }
 }
 @media screen and (min-width: 780px) {
-  /* #home {
-    background: linear-gradient(
-        to bottom,
-        rgba(63, 208, 212, 0.7),
-        rgba(0, 0, 0, 0.7)
-      ),
-      url(/images/main.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-   */
-
   /* featured tours*/
 
   .tours-wrapper {
